@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en-US">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84736616-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-84736616-3');
+    </script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-2256439533750580",
+            enable_page_level_ads: true
+        });
+    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring Boot Security OAuth2 Example | DevGlan</title>
+    <meta name="robots" content="index follow">
+    <meta name="keywords" content="Spring Boot Security OAuth2,secure, REST API,AuthorizationServer,ResourceServer,mysql db,Spring data,BCryptPasswordEncoder"/>
+    <meta name="description" content="Implementation of Spring Boot Security OAuth2 with CRUD example to secure REST APIs.Implementation of AuthorizationServer,ResourceServer with mysql db and spring data. BCryptPasswordEncoder is used for password encoding."/>
+    <meta name="author" content="DevGlan">
+    <link rel="publisher" href="https://plus.google.com/+DhirajRay1"/>
+    <meta itemprop="name" content="Spring Boot Security OAuth2 Example | DevGlan">
+    <meta itemprop="description" content="Implementation of Spring Boot Security OAuth2 with CRUD example to secure REST APIs.Implementation of AuthorizationServer,ResourceServer with mysql db and spring data. BCryptPasswordEncoder is used for password encoding.">
+    <meta itemprop="image" content="https://www.devglan.com/style/img/logo.png">
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Spring Boot Security OAuth2 Example | DevGlan"/>
+    <meta property="og:description" content="Implementation of Spring Boot Security OAuth2 with CRUD example to secure REST APIs.Implementation of AuthorizationServer,ResourceServer with mysql db and spring data. BCryptPasswordEncoder is used for password encoding."/>
+    <meta property="og:url" content="http://www.devglan.com/spring-security/spring-boot-security-oauth2-example"/>
+    <meta property="og:site_name" content="devglan"/>
+    <meta property="og:image" content="https://www.devglan.com/style/img/logo.png"/>
+    <meta property="article:publisher" content="https://www.facebook.com/devglanjava/"/>
+    <meta property="article:section" content="Java"/>
+    <meta property="fb:admins" content="1766542550255713"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="Implementation of Spring Boot Security OAuth2 with CRUD example to secure REST APIs.Implementation of AuthorizationServer,ResourceServer with mysql db and spring data. BCryptPasswordEncoder is used for password encoding."/>
+    <meta name="twitter:title" content="Spring Boot Security OAuth2 Example | DevGlan"/>
+    <meta name="twitter:site" content="@devglan"/>
+    <meta name="twitter:image" content="https://www.devglan.com/style/img/logo.png"/>
+    <meta name="twitter:creator" content="@devglan"/>
+    <base href="https://www.devglan.com/">
+    <meta name="google-site-verification" content="pcGimoh7HVlCiraucWwIZYVgSleXCl0y8uewA50qq9A"/>
+    <meta name="yandex-verification" content="a0c9dc226b7c4f05" />
+    <meta name="msvalidate.01" content="2DD64873692E7643039DF4CF26600A83"/>
+    <link rel="alternate" type="application/rss+xml" title="DevGlan Feed" href="https://www.devglan.com/feed.xml"/>
+    <link rel='shortcut icon' href='style/img/favicon.ico' type='image/x-icon'/>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+
+<body ng-app="devStack" ng-controller="dashboardController" ng-init="sUrl='http://www.devglan.com/spring-security/spring-boot-security-oauth2-example';sTitle='Spring Boot Security OAuth2 Example | DevGlan';sDesc='spring-boot-security-oauth2-example'">
+<header id="header">
+    <div ng-include="'menu1.html'"></div>
+    <div class="clearfix"></div>
+   
+</header>
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-84736616-2', 'auto');
+    ga('send', 'pageview');
+</script>
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1309443285772418";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<section class="content-container" ng-init="articleId='96'">
+    <div class="col-lg-12">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- add-unit-top -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-2256439533750580"
+             data-ad-slot="6955723615"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <div class="fb-like" data-href="https://www.facebook.com/devglanjava" data-layout="button_count"
+             data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+        <a href="https://twitter.com/only2dhir" class="twitter-follow-button" data-show-count="false">Follow @devglan</a>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="g-follow" data-annotation="bubble" data-height="20" data-href="//plus.google.com/+DhirajRay1" data-rel="author"></div>
+        <div class="row">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="left-blog">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h1>Spring Boot Security OAuth2 Example(Bcrypt Encoder)</h1>
+                            <img src=data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="https://i.imgur.com/qunRTdO.jpg" class="user-pic" alt="author-image">&nbsp;&nbsp;<span class="antb">By <a href="https://plus.google.com/+DhirajRay1" target="_blank" rel="noreferrer">Dhiraj</a>, 20 October, 2017&nbsp;&nbsp;
+                
+                    | Last updated on: 18 January, 2018
+                </span>
+                        <span class="pull-right"><i class="fa fa-eye" aria-hidden="true"></i> 126K</span>
+                        <hr/>
+                        <div class="white-space"><p>In this post we will be discussing about securing REST APIs using Spring Boot Security OAuth2 with an example.We will be implementing <span class="code">AuthorizationServer</span>, <span class="code">ResourceServer</span> and some REST API for different crud operations and test these APIs using Postman. For an integration with Angular, you can visit <a href="https://www.devglan.com/spring-security/spring-boot-oauth2-angular">Spring Boot OAuth2 Angular</a>.Here we will be using mysql database to read user credentials instead of in-memory authentication. Also, to ease our ORM solution, we will be using spring-data and <span class="code"> BCryptPasswordEncoder</span> for password encoding.Also, at the end we will make this configuration compatible with spring boot 2.</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- add-unit-top -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-2256439533750580"
+     data-ad-slot="6955723615"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>In this article, the authorization server and resource server is implemented using spring boot. For a 3rd party authorization server, you can visit this - <a href="https://www.devglan.com/spring-security/spring-boot-security-google-oauth">Spring Boot OAuth2 with Google</a></p>
+<h2 class="st">What is OAuth</h2><p>OAuth is simply a secure authorization protocol that deals with the authorization of third party application to access the user data without exposing their password. eg. (Login with fb, gPlus, twitter in many websites..) all work under this protocol.The Protocol becomes easier when you know the involved parties. Basically there are three parties involved: oAuth Provider, oAuth Client and Owner.Here, oAuth Provider provides the auth token such as Facebook, twitter. Similarly, oAuth Client are the the applications which want access of the credentials on behalf of owner and owner is the user which has account on oAuth providers such as facebook and twitter.Here is an another article of <a href="http://www.devglan.com/spring-security/spring-boot-oauth2-jwt-example">Securing REST API with Spring Boot Security Oauth2 JWT Token.</a>
+</p>
+<h2 class="st">What is OAuth2</h2><p><a href="https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2" rel="nofollow">OAuth 2</a> is an authorization framework that enables applications to obtain limited access to user accounts on an HTTP service, such as Facebook, GitHub, and DigitalOcean. It works by delegating user authentication to the service that hosts the user account, and authorizing third-party applications to access the user account. OAuth 2 provides authorization flows for web and desktop applications, and mobile devices.</p>
+<h2 class="st">OAuth2 Roles</h2>
+<p>OAuth2 provides 4 different roles. </p><p><b>Resource Owner</b>: User</p><p><b>Client:</b> Application</p><p><b>Resource Server</b>: API</p><p><b>Authorization Server</b>: API</p><h2 class="st">OAuth2 Grant Types</h2>
+<div class="col-md-offset-1">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- medium-rectangle -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-2256439533750580"
+     data-ad-slot="4106313937"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<p>Following are the 4 different grant types defined by OAuth2</p><p><b>Authorization Code:</b> used with server-side Applications</p><p><b>Implicit:</b> used with Mobile Apps or Web Applications (applications that run on the user's device)</p><p><b>Resource Owner Password Credentials:</b> used with trusted Applications, such as those owned by the service itself</p><p><b>Client Credentials:</b> used with Applications API access</p>
+<h2 class="st">Project Structure</h2><p>Following is the project structure of our Spring Boot Security OAuth2 implementation.</p>
+<a href="https://imgur.com/YgMjZEH"><img src="https://i.imgur.com/YgMjZEH.png" title="oauth2-project-strct" alt="oauth2-project-strct" class="img-responsive"/></a>
+<h2 class="st">Maven Dependencies</h2>
+<b>pom.xml</b>
+<p>Following are the required dependencies.</p>
+<pre>
+&ltparent&gt
+        &ltgroupId&gt<span class="tag">org.springframework.boot</span>&lt/groupId&gt
+        &ltartifactId&gt<span class="tag">spring-boot-starter-parent</span>&lt/artifactId&gt
+        &ltversion&gt<span class="tag">1.5.8.RELEASE</span>&lt/version&gt
+&lt/parent&gt
+	
+    &ltdependencies&gt
+	    &ltdependency&gt
+                   &ltgroupId&gt<span class="tag">org.springframework.boot</span>&lt/groupId&gt
+                   &ltartifactId&gt<span class="tag">spring-boot-starter-web</span>&lt/artifactId&gt
+            &lt/dependency&gt
+	    &ltdependency&gt
+                   &ltgroupId&gt<span class="tag">org.springframework.boot</span>&lt/groupId&gt
+                   &ltartifactId&gt<span class="tag">spring-boot-starter-data-jpa</span>&lt/artifactId&gt
+             &lt/dependency&gt
+	     &ltdependency&gt
+                    &ltgroupId&gt<span class="tag">org.springframework.boot</span>&lt/groupId&gt
+                    &ltartifactId&gt<span class="tag">spring-boot-starter-security</span>&lt/artifactId&gt
+	      &lt/dependency&gt
+		  &ltdependency&gt
+                   &ltgroupId&gt<span class="tag">org.springframework.boot</span>&lt/groupId&gt
+                   &ltartifactId&gt<span class="tag">spring-security-oauth2</span>&lt/artifactId&gt
+             &lt/dependency&gt
+	     &ltdependency&gt
+                    &ltgroupId&gt<span class="tag">mysql</span>&lt/groupId&gt
+                    &ltartifactId&gt<span class="tag">mysql-connector-java</span>&lt/artifactId&gt
+	      &lt/dependency&gt
+	      &ltdependency&gt
+                     &ltgroupId&gt<span class="tag">commons-dbcp</span>&lt/groupId&gt
+                     &ltartifactId&gt<span class="tag">commons-dbcp</span>&lt/artifactId&gt
+		&lt/dependency&gt
+		
+    &lt/dependencies&gt
+</pre>
+<h2 class="st">OAuth2 Authorization Server Config</h2><p>This class extends <code>AuthorizationServerConfigurerAdapter</code> and is responsible for generating tokens specific to a client.Suppose, if a user wants to login to <span class="str">devglan.com</span> via facebook then facebook auth server will be generating tokens for Devglan.In this case, Devglan becomes the client which will be requesting for authorization code on behalf of user from facebook - the authorization server.Following is a similar implementation that facebook will be using.</p><p>Here, we are using in-memory credentials with client_id as <span class="str">devglan-client</span> and CLIENT_SECRET as <span class="str">devglan-secret</span>.But you are free to use JDBC implementation too.</p><p><span class="str">@EnableAuthorizationServer:</span> Enables an authorization server.AuthorizationServerEndpointsConfigurer defines the authorization and token endpoints and the token services.</p>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block; text-align:center;"
+     data-ad-layout="in-article"
+     data-ad-format="fluid"
+     data-ad-client="ca-pub-2256439533750580"
+     data-ad-slot="9719162916"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<p>For an integration with Google along with a custom login, you can visit this article - <a href="https://www.devglan.com/spring-security/spring-security-oauth2-user-registration">Spring Security OAuth2 Google Registration</a></p>
+<b>AuthorizationServerConfig.java</b>
+<pre>
+<span class="kw">package</span> com.devglan.config;
+
+<span class="kw">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="kw">import</span> org.springframework.context.annotation.Configuration;
+<span class="kw">import</span> org.springframework.security.authentication.AuthenticationManager;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+<span class="kw">import</span> org.springframework.security.oauth2.provider.token.TokenStore;
+
+<span class="antb">@Configuration</span>
+<span class="antb">@EnableAuthorizationServer</span>
+<span class="kw">public class</span> AuthorizationServerConfig <span class="kw">extends</span> AuthorizationServerConfigurerAdapter {
+
+	<span class="kw">static final</span> String CLIEN_ID = <span class="ant">"devglan-client"</span>;
+	<span class="kw">static final</span> String CLIENT_SECRET = <span class="ant">"devglan-secret"</span>;
+	<span class="kw">static final</span> String GRANT_TYPE = <span class="ant">"password"</span>;
+	<span class="kw">static final</span> String AUTHORIZATION_CODE = <span class="ant">"authorization_code"</span>;
+	<span class="kw">static final</span> String REFRESH_TOKEN = <span class="ant">"refresh_token"</span>;
+	<span class="kw">static final</span> String IMPLICIT = <span class="ant">"implicit"</span>;
+	<span class="kw">static final</span> String SCOPE_READ = <span class="ant">"read"</span>;
+	<span class="kw">static final</span> String SCOPE_WRITE = <span class="ant">"write"</span>;
+	<span class="kw">static final</span> String TRUST = <span class="ant">"trust"</span>;
+	<span class="kw">static final</span> int ACCESS_TOKEN_VALIDITY_SECONDS = 1*60*60;
+    <span class="kw">static final</span> int FREFRESH_TOKEN_VALIDITY_SECONDS = 6*60*60;
+	
+	<span class="antb">@Autowired</span>
+	<span class="kw">private</span> TokenStore tokenStore;
+
+	<span class="antb">@Autowired</span>
+	<span class="kw">private</span> AuthenticationManager authenticationManager;
+
+	<span class="antb">@Override</span>
+	<span class="kw">public void</span> configure(ClientDetailsServiceConfigurer configurer) <span class="kw">throws</span> Exception {
+
+		configurer
+				.inMemory()
+				.withClient(CLIEN_ID)
+				.secret(CLIENT_SECRET)
+				.authorizedGrantTypes(GRANT_TYPE_PASSWORD, AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT )
+				.scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
+				.accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS).
+				refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
+	}
+
+	<span class="antb">@Override</span>
+	<span class="kw">public void</span> configure(AuthorizationServerEndpointsConfigurer endpoints) <span class="kw">throws</span> Exception {
+		endpoints.tokenStore(<span class="ant">tokenStore</span>)
+				.authenticationManager(<span class="ant">authenticationManager</span>);
+	}
+}
+</pre>
+<h2 class="st">OAuth2 Resource Server Config</h2>
+<p>Resource in our context is the REST API which we have exposed for the crud operation.To access these resources, client must be authenticated.In real-time scenarios, whenever an user tries to access these resources, the user will be asked to provide his authenticity and once the user is authorized then he will be allowed to access these protected resources. </p><p><span class="str">@EnableResourceServer:</span> Enables a resource server
+ <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- add-unit-top -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-2256439533750580"
+             data-ad-slot="6955723615"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script></p><b>ResourceServerConfig.java</b>
+<pre>
+<span class="kw">package</span> com.devglan.config;
+
+<span class="kw">import</span> org.springframework.context.annotation.Configuration;
+<span class="kw">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+<span class="kw">import</span> org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+<span class="kw">import</span> org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+
+<span class="antb">@Configuration</span>
+<span class="antb">@EnableResourceServer</span>
+<span class="kw">public class</span> ResourceServerConfig <span class="kw">extends</span> ResourceServerConfigurerAdapter {
+
+	<span class="kw">private static</span> final String RESOURCE_ID = <span class="ant">"resource_id"</span>;
+	
+	<span class="antb">@Override</span>
+	<span class="kw">public void</span> configure(ResourceServerSecurityConfigurer resources) {
+		resources.resourceId(RESOURCE_ID).stateless(false);
+	}
+
+	<span class="antb">@Override</span>
+	<span class="kw">public void</span> configure(HttpSecurity http) <span class="kw">throws</span> Exception {
+        http.
+                anonymous().disable()
+                .authorizeRequests()
+                .antMatchers(<span class="ant">"/users/**"</span>).authenticated()
+                .and().exceptionHandling().accessDeniedHandler(<span class="kw">new</span> OAuth2AccessDeniedHandler());
+	}
+
+}
+</pre>
+<pre>
+<b> Other Interesting Posts</b>
+<a class="topic" href="https://www.devglan.com/corejava/java-aes-encypt-decrypt">AES Encryption and Decryption in Java</a>
+<a class="topic" href="https://www.devglan.com/spring-security/spring-boot-jwt-auth">Spring Boot Security JWT Authentication</a>
+<a class="topic" href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication">Spring Boot Security REST Basic Authentication</a>
+<a class="topic" href="https://www.devglan.com/spring-boot/spring-boot-actuator-tutorial-guide">Spring Boot Actuator Complete Guide</a>
+<a class="topic" href="https://www.devglan.com/spring-boot/spring-boot-actuator-rest-endpoints-example">Spring Boot Actuator  Rest Endpoints Example</a>
+<a class="topic" href="https://www.devglan.com/spring-security/spring-boot-security-hibernate-login-example">Spring Boot Security Hibernate Example with complete JavaConfig</a>
+<a class="topic" href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication">Securing REST API with Spring Boot Security Basic Authentication</a>
+<a class="topic" href="https://www.devglan.com/spring-security/spring-boot-security-password-encoding-bcrypt-encoder">Spring Boot Security Password Encoding using Bcrypt Encoder</a>
+<a class="topic" href="https://www.devglan.com/spring-boot/spring-websocket-integration-example-without-stomp">Websocket spring Boot Integration Without STOMP with complete JavaConfig</a>
+</pre>
+<h2 class="st">Security Config</h2>
+<p>This class extends <span class="str">WebSecurityConfigurerAdapter</span> and provides usual spring security configuration.Here, we are using bcrypt encoder to encode our passwords. You can try this <a href="http://www.devglan.com/online-tools/bcrypt-hash-generator" target="_blank">online Bcrypt Tool</a> to encode and match bcrypt passwords.Following configuration basically bootstraps the authorization server and resource server.</p><p><span class="str">@EnableWebSecurity</span> : Enables spring security web security support.</p><p><span class="str">@EnableGlobalMethodSecurity:</span> Support to have method level access control such as <code>@PreAuthorize </code> <code>@PostAuthorize</code></p><p>Here, we are using inmemorytokenstore but you are free to use JdbcTokenStore or JwtTokenStore.Here, is my another article to use <a href="https://www.devglan.com/spring-security/spring-boot-oauth2-jwt-example">jwttokenstore with spring security OAUTH2</a></p>
+<b>SecurityConfig.java</b>
+<pre>
+<span class="kw">package</span> com.devglan.config;
+
+<span class="kw">import</span> org.springframework.beans.factory.annotation.Autowired;
+<span class="kw">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;
+<span class="kw">import</span> org.springframework.context.annotation.Bean;
+<span class="kw">import</span> org.springframework.context.annotation.Configuration;
+<span class="kw">import</span> org.springframework.security.authentication.AuthenticationManager;
+<span class="kw">import</span> org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+<span class="kw">import</span> org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+<span class="kw">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;
+<span class="kw">import</span> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+<span class="kw">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+<span class="kw">import</span> org.springframework.security.core.userdetails.UserDetailsService;
+<span class="kw">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+<span class="kw">import</span> org.springframework.security.oauth2.provider.token.TokenStore;
+<span class="kw">import</span> org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
+<span class="kw">import</span> org.springframework.web.cors.CorsConfiguration;
+<span class="kw">import</span> org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+<span class="kw">import</span> org.springframework.web.filter.CorsFilter;
+
+<span class="kw">import</span> javax.annotation.Resource;
+
+<span class="antb">@Configuration</span>
+<span class="antb">@EnableWebSecurity</span>
+<span class="antb">@EnableGlobalMethodSecurity</span>(prePostEnabled = true)
+<span class="kw">public class</span> SecurityConfig <span class="kw">extends</span> WebSecurityConfigurerAdapter {
+
+    <span class="antb">@Resource</span>(name = <span class="ant">"userService"</span>)
+    <span class="kw">private</span> UserDetailsService userDetailsService;
+
+    <span class="antb">@Override</span>
+    <span class="antb">@Bean</span>
+    <span class="kw">public</span> AuthenticationManager authenticationManagerBean() <span class="kw">throws</span> Exception {
+        <span class="kw">return super</span>.authenticationManagerBean();
+    }
+
+    <span class="antb">@Autowired</span>
+    <span class="kw">public void</span> globalUserDetails(AuthenticationManagerBuilder auth) <span class="kw">throws</span> Exception {
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(encoder());
+    }
+
+    <span class="antb">@Override</span>
+    <span class="kw">protected void</span> configure(HttpSecurity http) <span class="kw">throws</span> Exception {
+        http
+                .csrf().disable()
+                .anonymous().disable()
+                .authorizeRequests()
+                .antMatchers(<span class="ant">"/api-docs/**"</span>).permitAll();
+    }
+
+    <span class="antb">@Bean</span>
+    <span class="kw">public</span> TokenStore tokenStore() {
+        <span class="kw">return new</span> InMemoryTokenStore();
+    }
+
+    <span class="antb">@Bean</span>
+    <span class="kw">public</span> BCryptPasswordEncoder encoder(){
+        <span class="kw">return new</span> BCryptPasswordEncoder();
+    }
+
+    <span class="antb">@Bean</span>
+    <span class="kw">public</span> FilterRegistrationBean corsFilter() {
+        UrlBasedCorsConfigurationSource source = <span class="kw">new</span> UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = <span class="kw">new</span> CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOrigin(<span class="ant">"*"</span>);
+        config.addAllowedHeader(<span class="ant">"*"</span>);
+        config.addAllowedMethod(<span class="ant">"*"</span>);
+        source.registerCorsConfiguration(<span class="ant">"/**"</span>, config);
+        FilterRegistrationBean bean = <span class="kw">new</span> FilterRegistrationBean(<span class="kw">new</span> CorsFilter(source));
+        bean.setOrder(0);
+        <span class="kw">return</span> bean;
+    }
+}
+
+</pre> 
+<h2 class="st">Rest APIs</h2><p>Following are the very basic REST APIs that we have exposed for testing purpose.</p><b>UserController.java</b>
+<pre>
+<span class="antb">@RestController</span>
+<span class="antb">@RequestMapping</span>(<span class="ant">"/users"</span>)
+<span class="kw">public class</span> UserController {
+
+    <span class="antb">@Autowired</span>
+    <span class="kw">private</span> UserService userService;
+
+    <span class="antb">@RequestMapping</span>(value=<span class="ant">"/user"</span>, method = RequestMethod.<span class="kw">GET</span>)
+    <span class="kw">public</span> List<User> listUser(){
+        <span class="kw">return</span> userService.findAll();
+    }
+
+    <span class="antb">@RequestMapping</span>(value = <span class="ant">"/user"</span>, method = RequestMethod.<span class="kw">POST</span>)
+    <span class="kw">public</span> User create(<span class="antb">@RequestBody</span> User user){
+        <span class="kw">return</span> userService.save(user);
+    }
+
+    <span class="antb">@RequestMapping</span>(value = <span class="ant">"/user/{id}"</span>, method = RequestMethod.<span class="kw">DELETE</span>)
+    <span class="kw">public</span> String delete(<span class="antb">@PathVariable</span>(value = <span class="ant">"id"</span>) Long id){
+        userService.delete(id);
+        <span class="kw">return</span> <span class="ant">"success"</span>;
+    }
+
+}
+</pre><p>Now let us define the Userservice that is responsible for fetching user details from the database.Following is the implementation that spring will be using to validate user.</p><b>UserServiceImpl.java</b><p>
+<style type="text/css">
+		.ad-unit-body { width: 320px; height: 100px; }
+		@media (min-width:500px) { .ad-unit-body { width: 468px; height: 60px; } }
+		@media (min-width:800px) { .ad-unit-body { width: 728px; height: 90px; } }
+	</style>
+	<ins class="adsbygoogle ad-unit-body"
+		 style="display:inline-block; text-align:center;"
+		 data-ad-layout="in-article"
+		 data-ad-client="ca-pub-2256439533750580"
+		 data-ad-slot="9719162916"></ins>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>(adsbygoogle = window.adsbygoogle || []).push({});</script></p>
+<pre>
+<span class="antb">@Service</span>(value = <span class="ant">"userService"</span>)
+<span class="kw">public class</span> UserServiceImpl <span class="kw">implements</span> UserDetailsService, UserService {
+	
+	<span class="antb">@Autowired</span>
+	<span class="kw">private</span> UserDao userDao;
+
+	<span class="kw">public</span> UserDetails loadUserByUsername(String userId) <span class="kw">throws</span> UsernameNotFoundException {
+		User user = userDao.findByUsername(userId);
+		<span class="kw">if</span>(user == <span class="kw">null</span>){
+			<span class="kw">throw new</span> UsernameNotFoundException(<span class="ant">"Invalid username or password."</span>);
+		}
+		<span class="kw">return</span> new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthority());
+	}
+
+	<span class="kw">private</span> List<SimpleGrantedAuthority> getAuthority() {
+		<span class="kw">return</span> Arrays.asList(new SimpleGrantedAuthority(<span class="ant">"ROLE_ADMIN"</span>));
+	}
+
+	<span class="kw">public</span> List<User> findAll() {
+		List<User> list = <span class="kw">new</span> ArrayList<>();
+		userDao.findAll().iterator().forEachRemaining(list::add);
+		<span class="kw">return</span> list;
+	}
+}
+</pre>
+<h2 class="st">Default Scripts</h2>
+<p>Following are the insert statements that are inserted when application starts.</p>
+<pre>
+<span class="kw">INSERT INTO User</span> (id, username, password, salary, age) <span class="kw">VALUES</span> (1, 'Alex123', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 3456, 33);
+<span class="kw">INSERT INTO User</span> (id, username, password, salary, age) <span class="kw">VALUES</span> (2, 'Tom234', '$2a$04$PCIX2hYrve38M7eOcqAbCO9UqjYg7gfFNpKsinAxh99nms9e.8HwK', 7823, 23);
+<span class="kw">INSERT INTO User</span> (id, username, password, salary, age) <span class="kw">VALUES</span> (3, 'Adam', '$2a$04$I9Q2sDc4QGGg5WNTLmsz0.fvGv3OjoZyj81PrSFyGOqMphqfS2qKu', 4234, 45);
+
+</pre>
+<h2 class="st">Testing the Application</h2>
+<P>Here, we will test the app with Postman. If you wish to see the angular client, you can visit my another article here - <a href="https://www.devglan.com/spring-security/spring-boot-oauth2-angular">Spring Boot OAUTH2 Angular Example</a></P>
+<p>Run <span class="str">Application.java</span> as a java application.We will be using postman to test the OAuth2 implementation.</p>
+<p><b>Generate AuthToken</b>:In the header we have username and password as Alex123 and password respectively as Authorization header.As per Oauth2 specification, Access token request should use <code>application/x-www-form-urlencoded.</code>Following is the setup.</p>
+<a href="https://imgur.com/1T0dhV7"><img src="https://i.imgur.com/1T0dhV7.jpg" title="generate-oauth2-token" alt="generate-oauth2-token" class="img-responsive"/></a>
+<p>Once you make the request you will get following result.It has access token as well as refresh token.</p>
+<a href="https://imgur.com/sP3uLm8"><img src="https://i.imgur.com/sP3uLm8.png" title="oauth2-token-result" alt="oauth2-token-result" class="img-responsive"/></a>
+<b>Accessing Resource Without Token</b>
+<a href="https://imgur.com/FgfpYhD"><img src="https://i.imgur.com/FgfpYhD.png" title="unauthorised" alt="unauthorised" class="img-responsive"/></a>
+<b>Accessing Resource With Token</b>
+<a href="https://imgur.com/g6WphWD"><img src="https://i.imgur.com/g6WphWD.png" title="access-restricted-resource" alt="access-restricted-resource" class="img-responsive"/></a>
+<b>Using refresh token to refresh the token</b>
+<p>Usually, the token expiry time is very less in case of oAuth2 and you can use following API to refresh token once it is expired.</p>
+<a href="https://imgur.com/ugZMxX7"><img src="https://i.imgur.com/ugZMxX7.png" title="oauth2-refresh-token" alt="oauth2-refresh-token" /></a>
+<h2 class="st" id="error1">Common Errors</h2> 
+<p>I can see in the comment section that there are 2 errors which most of the readers have encountered.Hence,adding this section that ideally should help readers.</p>
+<b>Full authentication is required to access this resource</b>
+<pre>
+{
+"timestamp": 1513747665246,
+"status": 401,
+"error": "Unauthorized",
+"message": "Full authentication is required to access this resource",
+"path": "/oauth/token"
+}
+</pre>
+<p>It causes in case you have missed to add username/password under authorization section of postman.Under this section, select Type as Basic Auth and provide the credentials as devglan-client and devglan-secret and then make the request to url - <a href>http://localhost:8080/oauth/token to get the auth token.Following is the screenshot.</p>
+<a href="https://imgur.com/a08sRAx"><img src="https://i.imgur.com/a08sRAx.png" title="oauth2" alt="Full authentication is required to access this resource" class="img-responsive" /></a>
+<b>There is no client authentication. Try adding an appropriate authentication filter.</b>
+<pre>
+{
+    "error": "unauthorized",
+    "error_description": "There is no client authentication. Try adding an appropriate authentication filter."
+}
+</pre>
+<p>In this case check your auth url.It should be - <a href>http://localhost:8080/oauth/token</a> instead of <a href>http://localhost:8080/oauth/token/</a></p>
+<b>Missing grant type.</b>
+<pre>
+{
+    "error": "invalid_request",
+    "error_description": "Missing grant type"
+}
+</pre>
+<p>In this case you have missed adding grant_type in the request.Try adding it as <b>password</b></p>
+<h2 class="st" id="springboot2">Spring Boot 2 OAUTH2</h2>
+<p>While running this application with above configurations in Spring Boot 2, you will find below error.</p>
+<a href="https://imgur.com/1BzH6JX"><img src="https://i.imgur.com/1BzH6JX.png" alt = "spring-boot2-oauth2" class="img-responsive"/></a>
+<p>Following are the changes in <code>pom.xml</code> to make this example work with spring boot 2.</p>
+<pre>
+&ltparent&gt
+        &ltgroupId&gtorg.springframework.boot&lt/groupId&gt
+        &ltartifactId&gtspring-boot-starter-parent&lt/artifactId&gt
+        &ltversion&gt2.0.0.RELEASE&lt/version&gt
+&lt/parent&gt
+<span class="antb">...</span>
+&ltdependency&gt
+	&ltgroupId&gtorg.springframework.security.oauth&lt/groupId&gt
+	&ltartifactId&gtspring-security-oauth2&lt/artifactId&gt
+	&ltversion&gt2.0.10.RELEASE&lt/version&gt
+&lt/dependency&gt
+</pre>
+<p>For Spring Boot 2 you need to Bcrypt CLIENT_SECRET,so in AuthorizationServerConfig.java change line 17 into:</p>
+<pre>
+static final String CLIENT_SECRET = "$2a$04$e/c1/RfsWuThaWFCrcCuJeoyvwCV0URN/6Pn9ZFlrtIWaU/vj/BfG";
+</pre>
+<h2 class="st">Conclusion</h2>
+<p>In this tutorial we learned about securing REST API with OAUTH2 with implementation of resouce server and authorisation server. If you have anything that you want to add or share then please share it below in the <b>comment section</b>.You can download the source from <a href="https://github.com/only2dhir/spring-boot-security-oauth2/tree/master">github.</a></p></div>
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-format="autorelaxed"
+                                 data-ad-client="ca-pub-2256439533750580"
+                                 data-ad-slot="5151023636"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <div ng-show="showAuthorBio" ng-init="fetchAuthorBio('96')" ng-cloak>
+                                <h4>About The Author</h4>
+                                <div class="author-bio">
+                                    <div class="author-image">
+                                    <img src="{{authorBio.profileImageUrl}}" class="author-pic" alt="author-image">
+                                    </div>
+                                    <div class="author-bio-text">
+                                        <p ng-bind-html="authorBio.description"></p>
+                                    </div>
+                                </div>
+                           </div>
+                            <h4>Further Reading on Spring Security</h4>
+                            
+                                
+                                    <p>1.&nbsp<a href="https://www.devglan.com/spring-security/add-spring-security-custom-filter" class="topic">Add Spring Security Custom Filter</a></p>
+                                
+                            
+                                
+                                    <p>2.&nbsp<a href="https://www.devglan.com/spring-security/spring-boot-oauth2-angular" class="topic">Spring Boot Oauth2 Angular</a></p>
+                                
+                            
+                                
+                                    <p>3.&nbsp<a href="https://www.devglan.com/spring-security/jwt-role-based-authorization" class="topic">Jwt Role Based Authorization</a></p>
+                                
+                            
+                                
+                                    <p>4.&nbsp<a href="https://www.devglan.com/spring-security/angular-jwt-authentication" class="topic">Angular Jwt Authentication</a></p>
+                                
+                            
+                                
+                                    <p>5.&nbsp<a href="https://www.devglan.com/spring-security/spring-boot-jwt-auth" class="topic">Spring Boot Jwt Auth</a></p>
+                                
+                            
+                                
+                                    <p>6.&nbsp<a href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication" class="topic">Spring Boot Security Rest Basic Authentication</a></p>
+                                
+                            
+                                
+                                    <p>7.&nbsp<a href="https://www.devglan.com/spring-security/spring-boot-security-custom-form-login-example" class="topic">Spring Boot Security Custom Form Login Example</a></p>
+                                
+                            
+                                
+                            
+                                
+                            
+                                
+                            
+                            
+                            <div><h4>References</h4>
+                                
+                                    <p><b><a class="atn" href="http://projects.spring.io/spring-security-oauth/" target="_blank" rel="nofollow">spring-security-oauth</a></b></p>
+                                
+                                    <p><b><a class="atn" href="https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2" target="_blank" rel="nofollow">an-introduction-to-oauth-2</a></b></p>
+                                
+                                    <p><b><a class="atn" href="https://oauth.net/articles/authentication/" target="_blank" rel="nofollow">authentication/</a></b></p>
+                                
+                                    <p><b><a class="atn" href="https://developers.google.com/identity/protocols/OAuth2" target="_blank" rel="nofollow">Google OAuth2</a></b></p>
+                                
+                            </div>
+                            
+                            <div id="disqus_thread"></div>
+                            <script>
+                                var disqus_config = function () {
+                                    this.page.url = 'http://www.devglan.com/spring-security/spring-boot-security-oauth2-example';
+                                    this.page.identifier = 'http://www.devglan.com/spring-security/spring-boot-security-oauth2-example';
+                                };
+                                (function () {
+                                    var d = document, s = d.createElement('script');
+
+                                    s.src = '//www-devglan-com.disqus.com/embed.js';
+
+                                    s.setAttribute('data-timestamp', +new Date());
+                                    (d.head || d.body).appendChild(s);
+                                })();
+                            </script>
+                            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments
+                                powered by Disqus.</a></noscript>
+                            <div class="clearfix"></div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 col-xs-12 row-off d-sm-none d-md-block">
+                <div class="row">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- large-rect -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:336px;height:280px"
+                         data-ad-client="ca-pub-2256439533750580"
+                         data-ad-slot="7126457467"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <div class="right-blog">
+                        <div>
+                            <div><h3>Recommended</h3></div>
+                            <ul>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/add-spring-security-custom-filter">Add Spring Security Custom Filter</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-oauth2-angular">Spring Boot Oauth2 Angular</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/jwt-role-based-authorization">Jwt Role Based Authorization</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/angular-jwt-authentication">Angular Jwt Authentication</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-jwt-auth">Spring Boot Jwt Auth</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-security-rest-basic-authentication">Spring Boot Security Rest Basic Authentication</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-security-custom-form-login-example">Spring Boot Security Custom Form Login Example</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-security/spring-boot-security-hibernate-login-example">Spring Boot Security Hibernate Login Example</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-mvc/spring-jms-activemq-integration-example">Spring Jms Activemq Integration Example</a></li>
+                                
+                                    <li><a href="https://www.devglan.com/spring-mvc/spring-mvc-angularjs-integration-example">Spring Mvc Angularjs Integration Example</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="google_ad">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- ad-unit-right -->
+                    <ins class="adsbygoogle"
+                         style="display:inline-block;width:300px;height:600px"
+                         data-ad-client="ca-pub-2256439533750580"
+                         data-ad-slot="5806293478"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+    <div id="downloadModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-center">Download the Source</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" ng-submit="reset()">
+                        <fieldset>
+                            <p ng-show="validEmail" class="text-center has-error">Download link has been sent to your email. Be sure to check your spam folder.</p>
+                            <p ng-show="error" class="has-error">{{errorMessage}}</p>
+
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <div class="controls">
+                                    <input id="name" class="form-control" type="text"
+                                           placeholder="name" ng-model="userName" class="input-large" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <div class="controls">
+                                    <input id="email" class="form-control" type="text"
+                                           placeholder="email" ng-model="downloadEmail" class="input-large"
+                                           required>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" ng-click="downloadSource('spring-boot-security-oauth2-example')">Get Source</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-show="showCloseButton">Close</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="sticky-container" ng-include="'social.html'"></div>
+</section>
+<footer>
+    <div class="copyright-policy">
+        <p>&copy;2019, DevGlan. All Rights Reserved.&nbsp;&nbsp;<a href="privacy">Privacy Policy</a></p>
+        <p>Contact us: <a href="mailto:dhiraj@devglan.com">dhiraj@devglan.com</a></p>
+    </div>
+</footer>
+<link rel="stylesheet" href="style/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" async defer></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.1/angular-sanitize.min.js"></script>
+<script>var App = angular.module("devStack", ["ngSanitize"]);</script>
+<script src="js/controller/dashboard.js"></script>
+</body>
+</html>
